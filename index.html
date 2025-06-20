@@ -1,40 +1,339 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EvoWrite - The Ultimate Digital Notebook</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>EvoWrite - Official Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #1e90ff;
+      --primary-dark: #0066cc;
+      --secondary: #006064;
+      --light-bg: #f9f9f9;
+      --light-blue: #e0f7fa;
+      --light-gray: #f0f0f0;
+      --text-dark: #333;
+      --text-medium: #555;
+    }body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-bg);
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent);
+}
+
+header h1, header h2, header h3 {
+  margin: 0;
+  animation: fadeInDown 1s ease;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-top: 15px;
+  line-height: 1.3;
+}
+
+header h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-top: 15px;
+  opacity: 0.95;
+  line-height: 1.2;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--text-dark);
+  position: relative;
+  font-weight: 600;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--primary);
+  margin: 15px auto;
+  border-radius: 3px;
+}
+
+p {
+  font-size: 1.1rem;
+  color: var(--text-medium);
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.waitlist-section {
+  background: var(--light-blue);
+  text-align: center;
+  border-radius: 10px;
+  margin: 40px auto;
+  max-width: 900px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.waitlist-section h2 { color: var(--secondary); }
+.waitlist-section h2::after { background: var(--secondary); }
+
+.waitlist-section input[type="email"] {
+  padding: 14px 20px;
+  width: 300px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.waitlist-section button {
+  padding: 14px 30px;
+  border: none;
+  background: var(--secondary);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.waitlist-section button:hover {
+  background: #004d4d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.support-section {
+  background: var(--light-gray);
+  border-radius: 10px;
+  margin: 40px auto;
+  max-width: 900px;
+  text-align: center;
+}
+
+.support-section h2 {
+  font-size: 3.5rem;
+  line-height: 1.3;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.support-section p {
+  text-align: left;
+  line-height: 1.2;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.support-section button {
+  margin-top: 30px;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  border: none;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.support-section button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.section-content {
+  background: white;
+  padding: 60px 20px;
+  border-radius: 10px;
+  margin: 40px auto;
+  max-width: 900px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+input, textarea, select {
+  padding: 14px 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 1em;
+}
+
+form button {
+  padding: 14px 30px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+form button:hover {
+  background: var(--primary-dark);
+}
+
+footer {
+  background-color: var(--primary-dark);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.9rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+footer .footer-icons {
+  margin-bottom: 10px;
+}
+
+footer .footer-icons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer .footer-icons a:hover {
+  color: var(--light-blue);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  header h1 { font-size: 1.6rem; }
+  header h2 { font-size: 1.5rem; }
+  header h3 { font-size: 1.1rem; }
+
+  .support-section h2 {
+    font-size: 1.4rem;
+    line-height: 1.2;
+  }
+
+  .waitlist-section input[type="email"],
+  .waitlist-section button {
+    width: 100%;
+  }
+}
+
+  </style>
 </head>
-<body>
-  <header class="header">
-    <h1>The Future of Digital Note-Taking</h1>
-    <p>The Ultimate Digital Notebook for Limitless Creativity</p>
-  </header>
-
-  <section class="features">
-    <h2>Why Choose EvoWrite?</h2>
-    <ul>
-      <li>🖊️ Pen-on-paper feel with a high-precision stylus</li>
-      <li>📚 Perfect for writing, drawing, and reading</li>
-      <li>🚫 Distraction-free, no social media or notifications</li>
-      <li>🔋 Long battery life for days of usage</li>
-      <li>📥 Export your work as PDFs and images</li>
-    </ul>
-  </section>
-
-  <section class="preorder">
-    <h2>Preorder Now</h2>
-    <p>Reserve your EvoWrite today and be the first to experience next-gen digital note-taking.</p>
+<body>  <header>
+    <h1>Welcome to EvoWrite</h1>
+    <h2>The Future of Digital Note-Taking</h2>
+    <h3>The Ultimate Digital Notebook for smarter Note-Taking</h3>
+  </header>  <section id="our-journey">
+    <h2>Our Journey</h2>
+    <p>EvoWrite was born from a simple idea: to create a digital notebook that feels as natural as writing on paper. We wanted a device that combined the simplicity of traditional note-taking with the power of modern technology.</p>
+  </section>  <section id="our-mission">
+    <h2>Our Mission</h2>
+    <p>At EvoWrite, our mission is to empower creativity by providing a distraction-free, intuitive digital writing experience. We believe that technology should enhance your focus, not disrupt it.That's why we are committed to building tools that are simple, elegant, and powerful- helping you for simple note- taking without disrupting your focus.</p>
+  </section>  <section id="why-evowrite">
+    <h2>Why EvoWrite?</h2>
+    <p>EvoWrite stands out because of its paper-like writing experience, lightweight design, and thoughtful features tailored for creative minds. With a focus on long battery life, seamless performance, and affordability, EvoWrite is your creative companion. Unlike conventional tablets that distract you with apps and ads, EvoWrite is built for pure, focused work. It's ideal for students who want clarity, professionals who need reliability, and creators who demand simplicity.</p>
+  </section>  <section class="waitlist-section" id="join-waitlist">
+    <h2>Join the Waitlist</h2>
+    <p>Be the first to experience EvoWrite. Sign up now and stay updated!</p>
     <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <button type="submit">Preorder</button>
+      <input type="email" placeholder="Enter your email">
+      <button type="submit">Join Now</button>
     </form>
-  </section>
-
-  <footer class="footer">
+  </section>  <section class="support-section" id="support-us">
+    <h2>Partner with EvoWrite today and be a part of this groundbreaking journey!</h2>
+    <p>We need an initial funding or seed funding to cover the costs of development of prototype, producing the first batch, and marketing the product.</p>
+    <p>By supporting EvoWrite, you're investing in a future where creativity and productivity coexist with environmental responsibility. Your funding will help us enhance our technology, expand our features, and bring this innovative solution to users worldwide.</p>
+    <p>Be a part of our vision and help us shape the future of note-taking.Together, we can make EvoWrite the go-to digital notebook for creators, students, and professionals alike.</p>
+    <button>Support Us by signing up below</button>
+  </section>  <section class="section-content">
+    <h2>Get In Touch with Us</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="👤 Name" required>
+      <input type="email" placeholder="✉️ Email" required>
+      <select required>
+        <option value="">🛒 Pre-Order Interest</option>
+        <option value="yes">Yes, I want to Pre-Order</option>
+        <option value="maybe">Maybe, keep me updated</option>
+        <option value="no">Not at the moment</option>
+      </select>
+      <input type="text" placeholder="📍 State" required>
+      <textarea placeholder="💬 Message (Optional)"></textarea>
+      <button type="submit">Sign up</button>
+    </form>
+  </section>  <footer>
+    <div class="footer-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
     <p>&copy; 2025 EvoWrite. All rights reserved.</p>
-  </footer>
-</body>
+  </footer></body>
 </html>
