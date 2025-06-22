@@ -314,19 +314,21 @@ footer .footer-icons a:hover {
     <button>Support Us by signing up below</button>
   </section>  <section class="section-content">
     <h2>Get In Touch with Us</h2>
-    <form id="contactForm">
-      <input type="text" placeholder="👤 Name" required>
-      <input type="email" placeholder="✉️ Email" required>
-      <select required>
-        <option value="">🛒 Pre-Order Interest</option>
-        <option value="yes">Yes, I want to Pre-Order</option>
-        <option value="maybe">Maybe, keep me updated</option>
-        <option value="no">Not at the moment</option>
-      </select>
-      <input type="text" placeholder="📍 State" required>
-      <textarea placeholder="💬 Message (Optional)"></textarea>
-      <button type="submit">Sign up</button>
-    </form>
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <input type="text" name="bot-field" style="display: none;">
+  <input type="hidden" name="form-name" value="contact">
+  <input type="text" name="name" placeholder="👤 Name" required>
+  <input type="email" name="email" placeholder="✉️ Email" required>
+  <select name="pre-order" required>
+    <option value="">🛒 Pre-Order Interest</option>
+    <option value="yes">Yes, I want to Pre-Order</option>
+    <option value="maybe">Maybe, keep me updated</option>
+    <option value="no">Not at the moment</option>
+  </select>
+  <input type="text" name="state" placeholder="📍 State" required>
+  <textarea name="message" placeholder="💬 Message (Optional)"></textarea>
+  <button type="submit">Sign up</button>
+</form>
   </section>  <footer>
     <div class="footer-icons">
       <a href="#"><i class="fab fa-facebook"></i></a>
